@@ -3,10 +3,10 @@ package com.ecobenchmark.kotlinspringjpa.entities
 import org.hibernate.annotations.GenericGenerator
 import java.time.Instant
 import java.util.*
-import javax.persistence.Entity
-import javax.persistence.GeneratedValue
-import javax.persistence.Id
-import javax.persistence.ManyToOne
+import jakarta.persistence.Entity
+import jakarta.persistence.GeneratedValue
+import jakarta.persistence.Id
+import jakarta.persistence.ManyToOne
 
 @Entity
 class Task(

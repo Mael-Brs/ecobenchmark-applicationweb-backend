@@ -1,20 +1,14 @@
 package com.ecobenchmark.kotlinspringjpa.controllers.getlists
 
-import com.ecobenchmark.kotlinspringjpa.controllers.getstats.StatsResponse
-import com.ecobenchmark.kotlinspringjpa.repositories.AccountRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.ResponseEntity
 import org.springframework.jdbc.core.JdbcTemplate
-import org.springframework.jdbc.core.ResultSetExtractor
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.RestController
 import java.sql.ResultSet
-import java.time.Instant
 import java.util.*
-import kotlin.collections.HashMap
-import kotlin.collections.MutableMap as MutableMap
 
 
 @RestController
@@ -26,7 +20,7 @@ class GetLists {
     fun getLists(@PathVariable(value = "id") accountId: UUID, @RequestParam(defaultValue = "0") page: Int): ResponseEntity<List<ListResponse>> {
         val listResponseMap = mutableMapOf<UUID, ListResponse>()
 
-        val stats = jdbcTemplate.query<Any>(
+        jdbcTemplate.query<Any>(
             """
                 SELECT
                 l.id,

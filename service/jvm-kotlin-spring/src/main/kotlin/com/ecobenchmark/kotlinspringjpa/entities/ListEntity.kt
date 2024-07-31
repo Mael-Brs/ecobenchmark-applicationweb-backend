@@ -3,7 +3,7 @@ package com.ecobenchmark.kotlinspringjpa.entities
 import org.hibernate.annotations.GenericGenerator
 import java.time.Instant
 import java.util.*
-import javax.persistence.*
+import jakarta.persistence.*
 
 @Entity(name = "list")
 class ListEntity(
